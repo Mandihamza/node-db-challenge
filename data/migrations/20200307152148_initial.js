@@ -18,10 +18,11 @@ exports.up = async function(knex) {
       .boolean('is_completed')
       .defaultTo(false)
       .notNull()
-      table
+    table
       .integer('project_id')
       .references('id')
       .inTable('projects')
+      .notNull()
   })
 
   await knex.schema.createTable('resources', table => {
